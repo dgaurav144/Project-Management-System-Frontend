@@ -17,7 +17,7 @@ import {
   Check,
   AtSign,
 } from 'lucide-react';
-import { format, formatDistanceToNow, parseISO } from 'date-fns';
+import { format, formatDistanceToNow, parseISO } from '../../utils/dateUtils';
 import api, { getErrorMessage } from '../../services/api';
 import { useBoard } from '../../context/BoardContext';
 import { useProject } from '../../context/ProjectContext';

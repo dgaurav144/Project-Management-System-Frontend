@@ -13,7 +13,7 @@ import {
   Sparkles,
   ExternalLink,
 } from 'lucide-react';
-import { format, formatDistanceToNow, parseISO } from 'date-fns';
+import { format, formatDistanceToNow, parseISO } from '../../utils/dateUtils';
 import api from '../../services/api';
 import { useProject } from '../../context/ProjectContext';
 import { useBoard } from '../../context/BoardContext';

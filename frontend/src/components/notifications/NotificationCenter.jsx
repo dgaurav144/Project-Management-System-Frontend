@@ -11,7 +11,7 @@ import {
   ExternalLink,
   AtSign,
 } from 'lucide-react';
-import { formatDistanceToNow, parseISO } from 'date-fns';
+import { formatDistanceToNow, parseISO } from '../../utils/dateUtils';
 import api from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
 import { useBoard } from '../../context/BoardContext';

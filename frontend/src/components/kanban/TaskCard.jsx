@@ -9,7 +9,7 @@ import {
   Tag,
   GripVertical,
 } from 'lucide-react';
-import { format, isPast, isToday, parseISO } from 'date-fns';
+import { format, isPast, isToday, parseISO } from '../../utils/dateUtils';
 import { useBoard } from '../../context/BoardContext';
 import { useProject } from '../../context/ProjectContext';
 
