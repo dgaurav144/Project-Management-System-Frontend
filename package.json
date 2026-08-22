@@ -1,0 +1,17 @@
+{
+  "name": "pulseflow-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PulseFlow Full-Stack Project Management & Collaboration Platform",
+  "scripts": {
+    "install:all": "npm install --prefix backend && npm install --prefix frontend",
+    "install:backend": "npm install --prefix backend",
+    "install:frontend": "npm install --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev": "npm run dev --prefix backend & npm run dev --prefix frontend",
+    "seed": "npm run seed --prefix backend",
+    "test": "node backend/tests/e2e-test.js",
+    "build": "npm run build --prefix frontend"
+  }
+}

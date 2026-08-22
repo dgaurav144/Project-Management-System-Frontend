@@ -1,5 +1,6 @@
 import app from './app.js';
 import { connectDB, disconnectDB } from './config/db.js';
+import { autoSeedIfEmpty } from './seeds/seedData.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -8,6 +9,7 @@ const PORT = process.env.PORT || 5000;
 const startServer = async () => {
   try {
     await connectDB();
+    await autoSeedIfEmpty();
 
     const server = app.listen(PORT, () => {
       console.log(`====================================================`);

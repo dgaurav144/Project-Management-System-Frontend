@@ -12,7 +12,7 @@ import RefreshToken from '../models/RefreshToken.js';
 
 dotenv.config();
 
-const seedDatabase = async () => {
+export const seedDatabase = async (disconnectAfter = true) => {
   try {
     console.log('🌱 Starting database seeding process...');
     await connectDB();
@@ -535,13 +535,32 @@ const seedDatabase = async () => {
     console.log('4. Designer: emily@example.com  / password123 (Member)');
     console.log('======================================================\n');
 
-    await disconnectDB();
-    process.exit(0);
+    if (disconnectAfter) {
+      await disconnectDB();
+      process.exit(0);
+    }
   } catch (error) {
     console.error('❌ Seeding failed:', error);
-    await disconnectDB();
-    process.exit(1);
+    if (disconnectAfter) {
+      await disconnectDB();
+      process.exit(1);
+    }
   }
 };
 
-seedDatabase();
+export const autoSeedIfEmpty = async () => {
+  try {
+    const userCount = await User.countDocuments();
+    if (userCount === 0) {
+      console.log('🌱 Database is empty! Auto-seeding initial demo data...');
+      await seedDatabase(false);
+    }
+  } catch (err) {
+    console.error('Auto-seed check error:', err.message);
+  }
+};
+
+// If run directly from CLI
+if (process.argv[1] && process.argv[1].replace(/\\/g, '/').endsWith('seedData.js')) {
+  seedDatabase(true);
+}
