@@ -15,7 +15,9 @@ dotenv.config();
 export const seedDatabase = async (disconnectAfter = true) => {
   try {
     console.log('🌱 Starting database seeding process...');
-    await connectDB();
+    if (mongoose.connection.readyState !== 1) {
+      await connectDB();
+    }
 
     // Clear existing collections
     console.log('🧹 Clearing existing collections...');

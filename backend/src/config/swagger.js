@@ -473,11 +473,264 @@ RESTful API for full-stack project management, Kanban boards, role-based collabo
   },
 };
 
+const swaggerCustomCss = `
+  /* PulseFlow Swagger UI Dark Premium Theme */
+  body {
+    background-color: #0B0F19 !important;
+    color: #F3F4F6 !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    margin: 0;
+    padding: 0;
+  }
+  .swagger-ui {
+    color: #E5E7EB !important;
+  }
+  .swagger-ui .topbar {
+    background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%) !important;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.25) !important;
+    padding: 14px 20px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+  }
+  .swagger-ui .topbar-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .swagger-ui .topbar-wrapper::before {
+    content: '⚡ PulseFlow API Documentation';
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #6366F1 0%, #38BDF8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .swagger-ui .topbar-wrapper img {
+    display: none !important;
+  }
+  .swagger-ui .info {
+    margin: 35px 0 25px 0 !important;
+  }
+  .swagger-ui .info .title {
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+    font-size: 2rem !important;
+    letter-spacing: -0.03em !important;
+  }
+  .swagger-ui .info .title small {
+    background: rgba(99, 102, 241, 0.2) !important;
+    color: #818CF8 !important;
+    border-radius: 6px !important;
+    padding: 3px 8px !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+  }
+  .swagger-ui .info p, .swagger-ui .info li, .swagger-ui .info td {
+    color: #9CA3AF !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+  .swagger-ui .scheme-container {
+    background: #111827 !important;
+    border: 1px solid #1F2937 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3) !important;
+    padding: 16px 24px !important;
+    margin-bottom: 30px !important;
+  }
+  .swagger-ui .schemes-title {
+    color: #D1D5DB !important;
+  }
+  .swagger-ui select {
+    background: #1F2937 !important;
+    color: #F9FAFB !important;
+    border: 1px solid #374151 !important;
+    border-radius: 8px !important;
+    padding: 6px 12px !important;
+  }
+  .swagger-ui .opblock-tag {
+    color: #F9FAFB !important;
+    border-bottom: 1px solid #1F2937 !important;
+    font-weight: 700 !important;
+    font-size: 1.2rem !important;
+    padding: 14px 0 !important;
+  }
+  .swagger-ui .opblock-tag small {
+    color: #6B7280 !important;
+  }
+  .swagger-ui .opblock {
+    border-radius: 12px !important;
+    border: 1px solid #1F2937 !important;
+    background: #111827 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2) !important;
+    margin: 0 0 14px !important;
+    overflow: hidden !important;
+    transition: all 0.2s ease !important;
+  }
+  .swagger-ui .opblock:hover {
+    border-color: #374151 !important;
+  }
+  .swagger-ui .opblock .opblock-summary {
+    border-color: #1F2937 !important;
+    padding: 10px 16px !important;
+  }
+  .swagger-ui .opblock .opblock-summary-path {
+    color: #F3F4F6 !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+  }
+  .swagger-ui .opblock .opblock-summary-description {
+    color: #9CA3AF !important;
+    font-size: 0.85rem !important;
+  }
+  .swagger-ui .opblock.opblock-get {
+    background: rgba(14, 165, 233, 0.04) !important;
+    border-color: rgba(14, 165, 233, 0.25) !important;
+  }
+  .swagger-ui .opblock.opblock-get .opblock-summary-method {
+    background: #0284c7 !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    text-shadow: none !important;
+  }
+  .swagger-ui .opblock.opblock-post {
+    background: rgba(16, 185, 129, 0.04) !important;
+    border-color: rgba(16, 185, 129, 0.25) !important;
+  }
+  .swagger-ui .opblock.opblock-post .opblock-summary-method {
+    background: #059669 !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    text-shadow: none !important;
+  }
+  .swagger-ui .opblock.opblock-patch {
+    background: rgba(245, 158, 11, 0.04) !important;
+    border-color: rgba(245, 158, 11, 0.25) !important;
+  }
+  .swagger-ui .opblock.opblock-patch .opblock-summary-method {
+    background: #d97706 !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    text-shadow: none !important;
+  }
+  .swagger-ui .opblock.opblock-delete {
+    background: rgba(244, 63, 94, 0.04) !important;
+    border-color: rgba(244, 63, 94, 0.25) !important;
+  }
+  .swagger-ui .opblock.opblock-delete .opblock-summary-method {
+    background: #e11d48 !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    text-shadow: none !important;
+  }
+  .swagger-ui .opblock-body {
+    background: #0B0F19 !important;
+    border-top: 1px solid #1F2937 !important;
+  }
+  .swagger-ui .opblock-description-wrapper, .swagger-ui .opblock-external-docs-wrapper, .swagger-ui .opblock-title_normal {
+    color: #9CA3AF !important;
+  }
+  .swagger-ui table thead tr td, .swagger-ui table thead tr th {
+    color: #D1D5DB !important;
+    border-bottom: 1px solid #374151 !important;
+  }
+  .swagger-ui .parameters-col_name {
+    color: #F3F4F6 !important;
+  }
+  .swagger-ui .parameter__name {
+    color: #818CF8 !important;
+    font-weight: 600 !important;
+  }
+  .swagger-ui .parameter__type {
+    color: #9CA3AF !important;
+  }
+  .swagger-ui input[type=text], .swagger-ui input[type=password], .swagger-ui textarea {
+    background: #1F2937 !important;
+    color: #F9FAFB !important;
+    border: 1px solid #374151 !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+  }
+  .swagger-ui .btn {
+    border-radius: 8px !important;
+    border-color: #374151 !important;
+    color: #E5E7EB !important;
+    font-weight: 600 !important;
+    transition: all 0.15s ease !important;
+  }
+  .swagger-ui .btn.authorize {
+    color: #10B981 !important;
+    border-color: rgba(16, 185, 129, 0.4) !important;
+    background: rgba(16, 185, 129, 0.1) !important;
+  }
+  .swagger-ui .btn.authorize svg {
+    fill: #10B981 !important;
+  }
+  .swagger-ui .btn.execute {
+    background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%) !important;
+    border: none !important;
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4) !important;
+  }
+  .swagger-ui .response-col_status {
+    color: #F3F4F6 !important;
+  }
+  .swagger-ui .responses-inner h4, .swagger-ui .responses-inner h5 {
+    color: #E5E7EB !important;
+  }
+  .swagger-ui .highlight-code, .swagger-ui .microlight, .swagger-ui pre {
+    background: #030712 !important;
+    color: #F3F4F6 !important;
+    border-radius: 8px !important;
+    border: 1px solid #1F2937 !important;
+  }
+  .swagger-ui .dialog-ux .modal-ux {
+    background: #111827 !important;
+    border: 1px solid #374151 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8) !important;
+  }
+  .swagger-ui .dialog-ux .modal-ux-header {
+    border-bottom: 1px solid #1F2937 !important;
+  }
+  .swagger-ui .dialog-ux .modal-ux-header h3 {
+    color: #FFFFFF !important;
+  }
+  .swagger-ui .dialog-ux .modal-ux-content {
+    color: #9CA3AF !important;
+  }
+  .swagger-ui .model-box {
+    background: #111827 !important;
+    border-radius: 8px !important;
+  }
+  .swagger-ui section.models {
+    border: 1px solid #1F2937 !important;
+    border-radius: 12px !important;
+    background: #111827 !important;
+  }
+  .swagger-ui section.models h4 {
+    color: #F3F4F6 !important;
+  }
+  .swagger-ui .model-title {
+    color: #818CF8 !important;
+  }
+`;
+
 export const serveSwagger = (app) => {
-  app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {
-    customCss: '.swagger-ui .topbar { display: none }',
-    customSiteTitle: 'Project Management Tool - API Docs',
-  }));
+  app.use(
+    '/api/docs',
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerDocument, {
+      customCss: swaggerCustomCss,
+      customSiteTitle: 'PulseFlow — Interactive API Docs',
+      swaggerOptions: {
+        persistAuthorization: true,
+        docExpansion: 'list',
+        defaultModelsExpandDepth: 1,
+      },
+    })
+  );
   app.get('/api/docs.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(swaggerDocument);
